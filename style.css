@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
 }
 
-body{
-    height: 100%;
+body {
+    height: 100vh;
     background-color: #e5e5f7;
     opacity: 1;
     background-size: 20px 20px;
-    background-image:  repeating-linear-gradient(to right, #B39eb5, #B39eb5 1px, #e5e5f7 1px, #e5e5f7);
+    background-image: repeating-linear-gradient(to right, #B39eb5, #B39eb5 1px, #e5e5f7 1px, #e5e5f7);
 }
 
-.container{
+.container {
     background: #fff;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     padding: 50px;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -29,14 +30,14 @@ body{
     perspective: 300px;
 }
 
-.stats{
+.stats {
     text-align: right;
     color: #101020;
     font-weight: 500;
     line-height: 25px;
 }
 
-.coin{
+.coin {
     height: 150px;
     width: 150px;
     position: relative;
@@ -45,20 +46,22 @@ body{
     transform-style: preserve-3d;
 }
 
-.tails{
+.tails {
     transform: rotateX(180deg);
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.coin img{
-    width: 145px;
+.coin img {
+    width: 100%;
 }
 
-.heads, .tails{
+.heads, .tails {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -66,49 +69,62 @@ body{
     -webkit-backface-visibility: hidden;
 }
 
-button{
-    width: 120px;
+button {
+    width: 100%;
+    max-width: 120px;
     padding: 10px 0;
     border: 2.5px solid #252525;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#flip-button{
+#flip-button {
     background: #fff;
     color: #252525;
 }
 
-#flip-button:disabled{
+#flip-button:disabled {
     background-color: #B39eb5;
     color: #101020;
     border-color: #B39eb5;
 }
 
-#reset-button{
+#reset-button {
     background: #fff;
     color: #252525;
 }
+
 .purple-button {
     background-color: #eeb2c0 !important;
     color: white;
     border: none;
-  }
+}
 
-@keyframes spin-tails{
-    0%{
+@keyframes spin-tails {
+    0% {
         transform: rotateX(0);
     }
-    100%{
+    100% {
         transform: rotateX(1980deg);
     }
 }
 
-@keyframes spin-heads{
-    0%{
+@keyframes spin-heads {
+    0% {
         transform: rotateX(0);
     }
-    100%{
+    100% {
         transform: rotateX(2160deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px;
+    }
+
+    .coin {
+        height: 100px;
+        width: 100px;
     }
 }
